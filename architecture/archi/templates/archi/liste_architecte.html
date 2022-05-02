@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}Tous les architectes {% endblock %}
+
+{% block content %}
+
+    <h1>La liste des architectes</h1>
+    {% for architecte in liste_architecte%}
+    <li>{{ architecte }} <a href="{%url 'update_architecte' architecte.id %}"> Update </a> <a href="{%url 'delete_architecte' architecte.id %}"> Delete </a> </li>
+    {% empty %}
+    Votre base de données est vide ! <a href="{% url 'ajout_architecte' %}"> Ajouter le premier architecte</a>.
+    {% endfor %}
+
+
+{% endblock %}

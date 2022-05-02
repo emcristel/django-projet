@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block title %}Mettre à jour l'architecte {% endblock %}
+
+{% block content %}
+
+    <h1>Mettre à jour l'architecte' {{architecte}} </h1>
+    <br/>
+    <form action="" method=POST>
+        {% csrf_token %}
+        {{ form.as_p}}
+        <br/>
+        <input type="submit" value="Mettre à jour">
+        
+    </form>
+    
+
+{% endblock %}
