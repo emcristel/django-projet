@@ -11,9 +11,9 @@ class ArchitecteForm(ModelForm):
             'oeuvre': _('oeuvre'),
         }
 
-class OeuvreForm(ModelForm):
+class TableForm(ModelForm):
     class Meta:
-        model=models.Oeuvre
+        model=models.Table
         fields=('nom','creation','localisation','type_oeuvre',)
         labels = {
             'nom': _('nom'),
