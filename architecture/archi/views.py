@@ -64,32 +64,32 @@ def tous (request):
     return render(request, 'archi/tous.html',{'oeuvre':oeuvre})
 
 
-#def ajout_architecte(request):
- #   submitted = False
-  #  if request.method == 'POST':
-  #      form = ArchitecteForm(request.POST)
-  #      if form.is_valid():
-  #          form.save()
-  #          return redirect('liste_architecte')
-  #  else:
-  #      form = ArchitecteForm
-  #      if 'submitted' in request.GET:
-  #          submitted = True
-  #  return render(request, 'archi/ajout_architecte.html', {'form':form, 'submitted':submitted})
+def ajout_architecte(request):
+    submitted = False
+    if request.method == 'POST':
+        form = ArchitecteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_architecte')
+    else:
+        form = ArchitecteForm
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'archi/ajout_architecte.html', {'form':form, 'submitted':submitted})
 
 def liste_architecte(request):
    liste_architecte = Architecte.objects.all()
    return render(request, 'archi/liste_architecte.html', {'liste_architecte': liste_architecte})
 
-#def update_architecte(request, architecte_id):
- #   architecte = Architecte.objects.get(pk=ville_id)
-  #  form = ArchitecteForm(request.POST or None, instance=architecte)
-   # if form.is_valid():
-    #    form.save()
-     #   return redirect("liste_architecte")
-    #return render(request, 'archi/update_architecte.html', {'architecte':architecte, 'form':form} )
+def update_architecte(request, architecte_id):
+    architecte = Architecte.objects.get(pk=ville_id)
+    form = ArchitecteForm(request.POST or None, instance=architecte)
+    if form.is_valid():
+        form.save()
+        return redirect("liste_architecte")
+    return render(request, 'archi/update_architecte.html', {'architecte':architecte, 'form':form} )
 
-#def delete_architecte(request, architecte_id):
- #   architecte = Architecte.objects.get(pk=ville_id)
-  #  architecte.delete()
-    # return redirect('liste_architecte')
+def delete_architecte(request, architecte_id):
+    architecte = Architecte.objects.get(pk=ville_id)
+    architecte.delete()
+    return redirect('liste_architecte')

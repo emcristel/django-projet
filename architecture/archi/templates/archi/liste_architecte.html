@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Tous les architectes {% endblock %}
 
 {% block content %}
 
     <h1>La liste des architectes</h1>
     <ul>
     {% for architecte in liste_architecte%}
-    <li>{{ architecte }} <a href="{%url 'update_architecte' architecte.id %}"> Update </a> <a href="{%url 'delete_architecte' architecte.id %}"> Delete </a> </li>
+    <li>{{ architecte }} <a href="{%url 'Uparchi' architecte.id%}"> Update </a> <a href="{%url 'Delarchi' architecte.id %}"> Delete </a> </li>
     {% empty %}
-    Votre base de données est vide ! <a href="{% url 'ajout_architecte' %}"> Ajouter le premier architecte</a>.
+    Votre base de données est vide ! <a href="{% url 'Ajarchi' %}"> Ajouter le premier architecte</a>.
     {% endfor %}
     </ul>
 
