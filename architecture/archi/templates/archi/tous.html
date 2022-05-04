@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>hello</h1>
+
+{% for oeuvre in tous%}
+<li>{{ oeuvre }} <a href="{%url 'Update' oeuvre.id%}"> Update </a> <a href="{%url 'Delete' oeuvre.id %}"> Delete </a> </li>
+    {% empty %}
+    Votre base de données est vide ! <a href="{% url 'Ajout' %}"> Ajouter la première oeuvre</a>.
+    {% endfor %}
+    </ul>
 
 {% endblock %}
