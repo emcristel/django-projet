@@ -1,31 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import TableForm
 from . import models
+from .models import Table
+from .models import Architecte
 from django.http import HttpResponseRedirect
 from django import forms
 
 
-def index(request):
-    submitted = False
-    if request.method == "POST":
-        form = TableForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/")
-    else:
-        form = TableForm
-        if 'submitted' in request.GET:
-            submitted = True
-    return render(request, "ajout.html", {'ajout': form})
+def home(request):
+    return render(request, 'archi/index.html')
 
 
 def ajout(request):
     if request.method=="POST":
-        form = TableForm(request)
+        form = TableForm(request.POST)
         if form.is_valid():
-            archi = form.save()
-            return HttpResponseRedirect(request,'/archi/affiche/')
+            form.save()
+            return redirect("Affiche")
         else:
+            form = TableForm
             return render(request,'archi/ajout.html',{"form": form})
 
     else:
@@ -43,12 +36,12 @@ def traitement(request):
 
 def affiche(request, id):
     oeuvre = models.Table.objects.get(pk=id)
-    return render(request,"archi/affiche.html",{"form": form})
+    return render(request,"archi/affiche.html",{"oeuvre": oeuvre})
 
 def update(request, id):
     oeuvre=models.Table.objects.get(pk=id)
     oform= TableForm(oeuvre.form)
-    return render(request,"archi/update.html", {"form": oform,"id": id})
+    return render(request, 'archi/update.html', {"form": oform,"id": id})
 
 def traitementupdate(request, id):
     oform = OTableForm(request.POST)
@@ -68,7 +61,7 @@ def delete(request, id):
 
 def tous (request):
     oeuvre= list(models.Table.objects.all())
-    return render(request, 'tous.html',{'oeuvre':oeuvre})
+    return render(request, 'archi/tous.html',{'oeuvre':oeuvre})
 
 
 #def ajout_architecte(request):
@@ -84,9 +77,9 @@ def tous (request):
   #          submitted = True
   #  return render(request, 'archi/ajout_architecte.html', {'form':form, 'submitted':submitted})
 
-#def all_architecte(request):
- #   liste_architecte = Architecte.objects.all()
-  #  return render(request, 'archi/liste_architecte.html', {'liste_architecte': liste_architecte})
+def liste_architecte(request):
+   liste_architecte = Architecte.objects.all()
+   return render(request, 'archi/liste_architecte.html', {'liste_architecte': liste_architecte})
 
 #def update_architecte(request, architecte_id):
  #   architecte = Architecte.objects.get(pk=ville_id)
