@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-        <meta charset="UTF-8">
-        <title>Architecte</title>
-        <link rel="stylesheet" type="text/css">
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="{% url 'Ajout' %}">Ajout Oeuvre</a>
-        <a class="nav-link" href="{% url 'tous' %}">Liste Oeuvre</a>
-        <a class="nav-link disabled">Les Architectes</a>
-      </div>
-    </div>
-  </div>
-</nav>
+{% extends 'base.html' %}
 
-    <div id="content">
         {% block content %}
         {% endblock %}
-    </div>
-
-</body>
-</html>

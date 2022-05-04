@@ -3,10 +3,9 @@ from django.db import models
 
 class Architecte(models.Model):
     archit= models.CharField(max_length=30)
-    oeuvre= models.CharField(max_length = 30)
+    style= models.TextField(null=True, blank=True)
 
     def __str__(self):
-        chaine= f"{self.archit} a créé l'oeuvre {self.oeuvre}"
         return self.archit
 
 class Table(models.Model):

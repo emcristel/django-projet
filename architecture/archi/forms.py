@@ -5,10 +5,10 @@ from . import models
 class ArchitecteForm(ModelForm):
     class Meta:
         model=models.Architecte
-        fields=('archit','oeuvre',)
+        fields=('archit','style',)
         labels = {
             'archit': _('nom architecte'),
-            'oeuvre': _('oeuvre'),
+            'style': _('style'),
         }
 
 class TableForm(ModelForm):

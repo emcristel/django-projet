@@ -24,7 +24,7 @@ def ajout(request):
         form = TableForm(request)
         if form.is_valid():
             archi = form.save()
-            return HttpResponseRedirect(request,'/archi/')
+            return HttpResponseRedirect(request,'/archi/affiche/')
         else:
             return render(request,'archi/ajout.html',{"form": form})
 
