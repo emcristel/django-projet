@@ -70,7 +70,7 @@ def ajout_architecte(request):
         form = ArchitecteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('liste_architecte')
+            return redirect('Architecte')
     else:
         form = ArchitecteForm
         if 'submitted' in request.GET:
@@ -82,14 +82,14 @@ def liste_architecte(request):
    return render(request, 'archi/liste_architecte.html', {'liste_architecte': liste_architecte})
 
 def update_architecte(request, architecte_id):
-    architecte = Architecte.objects.get(pk=ville_id)
+    architecte = Architecte.objects.get(pk=architecte_id)
     form = ArchitecteForm(request.POST or None, instance=architecte)
     if form.is_valid():
         form.save()
-        return redirect("liste_architecte")
+        return redirect("Architecte")
     return render(request, 'archi/update_architecte.html', {'architecte':architecte, 'form':form} )
 
 def delete_architecte(request, architecte_id):
-    architecte = Architecte.objects.get(pk=ville_id)
+    architecte = Architecte.objects.get(pk=architecte_id)
     architecte.delete()
-    return redirect('liste_architecte')
+    return redirect('Architecte')
