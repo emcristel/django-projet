@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import TableForm
+from .forms import ArchitecteForm
 from . import models
 from .models import Table
 from .models import Architecte
