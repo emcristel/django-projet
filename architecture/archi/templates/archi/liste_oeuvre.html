@@ -3,12 +3,11 @@
 {% block content %}
 
 {% for oeuvre in oeuvre %}
-<li>{{ oeuvre }} <a href="{%url 'Update' oeuvre.id%}"> Update </a> <a href="{%url 'Delete' oeuvre.id %}"> Delete </a> </li>
+<li>{{ oeuvre }} <a href="{%url 'Upoeuvre' oeuvre.id%}"> Update </a> <a href="{%url 'Delete' oeuvre.id %}"> Delete </a> </li>
 
 
     {% empty %}
     Votre base de données est vide ! <a href="{% url 'Ajout' %}"> Ajouter la première oeuvre</a>.
     {% endfor %}
-    </ul>
 
 {% endblock %}

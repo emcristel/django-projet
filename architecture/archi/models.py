@@ -11,7 +11,7 @@ class Architecte(models.Model):
 class Table(models.Model):
 
     nom = models.CharField(max_length=60)
-    creation = models.DateField(blank=True, null=True)
+    creation = models.DateField (blank=True, null=True)
     localisation = models.CharField(max_length=30)
     type_oeuvre = models.TextField(null=True, blank=True)
     architecte = models.ForeignKey(Architecte, blank=True, null=True, on_delete=models.CASCADE)
