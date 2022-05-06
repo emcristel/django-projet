@@ -17,7 +17,7 @@ def ajout(request):
         form = TableForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("Affiche")
+            return redirect("Tous")
         else:
             form = TableForm
             return render(request,'archi/ajout.html',{"form": form})
@@ -35,30 +35,21 @@ def traitement(request):
     else:
         return render(request, "archi/ajout.html")
 
-def affiche(request, id):
-    oeuvre = models.Table.objects.get(pk=id)
-    return render(request,"archi/affiche.html",{"oeuvre": oeuvre})
+
 
 def update(request, id):
-    oeuvre=models.Table.objects.get(pk=id)
-    oform= TableForm(oeuvre.form)
-    return render(request, 'archi/update.html', {"form": oform,"id": id})
-
-def traitementupdate(request, id):
-    oform = OTableForm(request.POST)
-    if oform.is_valid():
-        oeuvre = oform.save(commit=False)
-        oeuvre.id = id;
-        oeuvre.save()
-        return HttpResponseRedirect("/archi/")
-    else:
-        return render(request, "archie/update.html", {"form": oform, "id": id})
+    oeuvre = Table.objects.get(pk=id)
+    form = TableForm(request.POST or None, instance=oeuvre)
+    if form.is_valid():
+        form.save()
+        return redirect("Tous")
+    return render(request, 'archi/update.html', {'oeuvre':oeuvre, 'form':form} )
 
 
 def delete(request, id):
     oeuvre= models.Table.objects.get(pk=id)
     oeuvre.delete()
-    return HttpResponseRedirect("/archi/")
+    return redirect("Tous")
 
 def tous (request):
     oeuvre= list(models.Table.objects.all())
@@ -94,3 +85,4 @@ def delete_architecte(request, architecte_id):
     architecte = Architecte.objects.get(pk=architecte_id)
     architecte.delete()
     return redirect('Architecte')
+
