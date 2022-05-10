@@ -3,13 +3,31 @@
 
 {% block content %}
 
+<div class="listea">
     <h1>La liste des architectes</h1>
+    <br></br>
     <ul>
     {% for architecte in liste_architecte%}
-    <li>{{ architecte }} <a href="{%url 'Uparchi' architecte.id%}"> Update </a> <a href="{%url 'Delarchi' architecte.id %}"> Delete </a> </li>
+
+        <div class="card">
+          <div class="card-header">
+            {{ architecte }}
+          </div>
+          <div class="card-body">
+            <ul>
+                <li>Style: {{architecte.style}}</li>
+                <li><a href="{%url 'Uparchi' architecte.id%}"> Update </a> <a href="{%url 'Delarchi' architecte.id %}"> Delete </a> </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <br></br>
+
     {% empty %}
     Votre base de données est vide ! <a href="{% url 'Ajarchi' %}"> Ajouter le premier architecte</a>.
     {% endfor %}
     </ul>
+</div>
 
 {% endblock %}
