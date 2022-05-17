@@ -1,13 +1,27 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 
         {% block content %}
 <div class="upo">
 
-  <form method="post" action="">
-    {% csrf_token %}
-    {{ form.as_ul }}
-      <input type="submit" value="Mettre à jour"\>
+   <form action="" method="post">
+            {% csrf_token %}
+                    {{ form.nom|as_crispy_field }}
+
+                    {{ form.creation|as_crispy_field }}
+
+                    {{ form.localisation|as_crispy_field }}
+
+                    {{ form.type_oeuvre|as_crispy_field }}
+
+                    {{ form.architecte|as_crispy_field }}
+
+
+        <input class="btn btn-success" type="submit" value="Mettre à jour l'oeuvre">
+        <a class="btn btn-outline-danger" href="{% url 'Lioeuvre' %}">Annuler</a>
+
   </form>
 
 </div>

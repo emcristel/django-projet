@@ -4,11 +4,24 @@
 <div class="upa">
     <h1>Mettre à jour l'architecte {{architecte}} </h1>
 
-    <form action="" method=POST>
-        {% csrf_token %}
-        {{ form.as_p}}
-        <br/>
-        <input type="submit" value="Mettre à jour">
+    <form action="" method="post">
+            {% csrf_token %}
+
+            <div class="form-row">
+                <div class="form-group col-sm-6 col-md-4">
+                    {{ form.archit|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-6 col-md-4">
+                    {{ form.style|as_crispy_field }}
+                </div>
+            </div>
+
+        <input class="btn btn-success" type="submit" value="Mettre à jour l'oeuvre">
+        <a class="btn btn-outline-danger" href="{% url 'Architecte' %}">Annuler</a>
+
     </form>
 
 </div>

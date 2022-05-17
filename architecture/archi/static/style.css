@@ -120,13 +120,17 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 
 /*!!! PARTIE AJOUT.HTML !!!*/
 
+.ajoeuvre{
+    margin:auto;
+    width:80%;
+}
 
 
 /*!!! PARTIE LISTE_OEUVRE.HTML !!!*/
 .listeo{
-margin: auto;
-margin-top: 5%;
-width: 80%;
+    margin:auto;
+    margin-top: 10%;
+    width:80%;
 }
 
 /*!!! PARTIE UPDATE_OEUVRE.HTML !!!*/
