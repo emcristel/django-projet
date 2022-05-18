@@ -1,23 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Ubuntu:wght@500&display=swap');
+
+
 body{
-background-color:#F0EFF4;
+    background-color:#F0EFF4;
+}
+
+h2{
+    font-family: 'Ubuntu';
+    text-align: center;
 }
 
 
 /*!!! PARTIE INDEX.HTML !!!*/
 
 .titre{
-text-align: center;
-margin: auto;
-margin-top: 15%;
-width: 80%;
+    text-align: center;
+    margin: auto;
+    margin-top: 15%;
+    width: 80%;
 }
 
 h1{
-color: #1D1E2C;
+    color: #1D1E2C;
+    font-family: 'Ubuntu';
 }
 
 a{
-text-decoration: none;
+    text-decoration: none;
 }
 
 .custom-btn {
@@ -42,7 +52,7 @@ text-decoration: none;
 
 .btn-6 {
   background: rgb(247,150,192);
-background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 100%);
+  background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 100%);
   line-height: 42px;
   border: none;
 }
@@ -132,6 +142,7 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 
 .ajoeuvre{
     margin:auto;
+    margin-top: 5%;
     width:80%;
 
 }
@@ -152,7 +163,9 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 
 
 /*!!! PARTIE AJOUT_ARCHITECTE.HTML !!!*/
-
+.ajarchi{
+    margin-top: 5%;
+}
 /*!!! PARTIE UPDATE_ARCHITECTE.HTML !!!*/
 .upa{
     margin: auto;
@@ -164,5 +177,5 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 .listea{
     margin: auto;
     margin-top: 5%;
-    width: 80%;
+    width: 55%;
 }

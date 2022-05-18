@@ -15,8 +15,9 @@
           </div>
           <div class="card-body">
             <ul>
-                <li>Style: {{architecte.style}}</li>
-                <li><a href="{%url 'Uparchi' architecte.id%}"> Update </a> <a href="{%url 'Delarchi' architecte.id %}"> Delete </a> </li>
+                <li>{{architecte.style}}</li>
+                <p> </p>
+                <a href="{%url 'Uparchi' architecte.id%}" type="button" class="btn btn-primary"> Update </a> <a href="{%url 'Delarchi' architecte.id %}" type="button" class="btn btn-danger"> Delete </a>
             </ul>
 
           </div>

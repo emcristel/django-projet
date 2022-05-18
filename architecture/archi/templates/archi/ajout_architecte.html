@@ -4,9 +4,11 @@
 
 
 {% block content %}
+<div class="ajarchi">
     <center>
     <h2>Page d'ajout d'un nouvel architecte</h2>
     <br/><br/>
+
 
     <form method="post">
             {% csrf_token %}
@@ -25,5 +27,5 @@
         <button type="submit" class="btn btn-success">Ajouter l'architecte</button>
     </form>
     </center>
-
+</div>
 {% endblock %}
