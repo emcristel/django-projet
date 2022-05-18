@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Architecte(models.Model):
-    archit= models.CharField(max_length=30)
+    archit= models.CharField(null=True, blank=True, max_length=30)
     style= models.TextField(null=True, blank=True)
 
     def __str__(self):
@@ -10,15 +10,14 @@ class Architecte(models.Model):
 
 class Table(models.Model):
 
-    nom = models.CharField(max_length=60)
+    nom = models.CharField(null=True, blank=True, max_length=60)
     creation = models.DateField (blank=True, null=True)
-    localisation = models.CharField(max_length=30)
-    type_oeuvre = models.TextField(null=True, blank=True)
+    localisation = models.CharField(null=True, blank=True, max_length=30)
+    type_oeuvre = models.CharField(null=True, blank=True, max_length=200)
     architecte = models.ForeignKey(Architecte, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        chaine = f"{self.nom} a été créé le {self.creation} à {self.localisation}. C'est un {self.type_oeuvre} fait par: {self.architecte}"
-        return chaine
+        return self.nom
 
 
     def dico(self):

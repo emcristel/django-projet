@@ -4,43 +4,40 @@
 {% block content %}
 
 <div class="ajoeuvre">
-    <h1>Page d'ajout d'une nouvelle oeuvre</h1>
-    <br/><br/>
+    <h2>Page d'ajout d'une nouvelle oeuvre</h2>
+    <br></br>
 
-    <form action="" method="post">
+    <form method="post">
             {% csrf_token %}
             <div class="form-row">
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-4 col-md-10">
                     {{ form.nom|as_crispy_field }}
                 </div>
-
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-4 col-md-10">
                     {{ form.creation|as_crispy_field }}
                 </div>
             </div>
 
 			<div class="form-row">
-                <div class="form-group col-sm-6 col-md-4">
+                <div class="form-group col-sm-4 col-md-10">
                     {{ form.localisation|as_crispy_field }}
                 </div>
             </div>
 
 			<div class="form-row">
-                <div class="form-group col-sm-6 col-md-4">
+                <div class="form-group col-sm-4 col-md-10">
                     {{ form.type_oeuvre|as_crispy_field }}
                 </div>
             </div>
 
 			<div class="form-row">
-                <div class="form-group col-sm-6 col-md-4">
+                <div class="form-group col-sm-4 col-md-10">
                     {{ form.architecte|as_crispy_field }}
                 </div>
             </div>
-
-		<br/><br/>
-        <button type="submit" class="btn btn-success">Ajouter l'oeuvre</button>
+        <br></br>
+        <button type="submit" class="btn btn-success">Ajouter l'architecte</button>
     </form>
 
 </div>
-
 {% endblock %}

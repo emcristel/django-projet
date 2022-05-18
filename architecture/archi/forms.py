@@ -7,8 +7,8 @@ class ArchitecteForm(ModelForm):
         model=models.Architecte
         fields=('archit','style',)
         labels = {
-            'archit': _('nom architecte'),
-            'style': _('style'),
+            'archit': _('NOM ARCHITECTE'),
+            'style': _('STYLE'),
         }
 
 class TableForm(ModelForm):
@@ -16,11 +16,10 @@ class TableForm(ModelForm):
         model=models.Table
         fields=('nom','creation','localisation','type_oeuvre','architecte')
         labels = {
-            'nom': _('nom'),
-            'creation': _('date de creation'),
-            'localisation': _('localisation'),
-            'type_oeuvre': _('type oeuvre'),
-            'architecte': _('architecte')
+            'nom': _('NOM'),
+            'creation': _('DATE DE CREATION'),
+            'localisation': _('LOCALISATION'),
+            'type_oeuvre': _('TYPE OEUVRE'),
+            'architecte': _('ARCHITECTE')
         }
-        localized_fields = ('date_creation',)
 

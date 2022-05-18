@@ -13,18 +13,18 @@ def home(request):
 
 
 def ajout(request):
-    if request.method=="POST":
+    submitted = False
+    if request.method == "POST":
         form = TableForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("Lioeuvre")
-        else:
-            form = TableForm
-            return render(request,'archi/ajout.html',{"form": form})
-
     else:
-        form = TableForm()
-        return render(request, 'archi/ajout.html',{"form" : form})
+        form = TableForm
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request,'archi/ajout.html',{"form": form, 'submitted':submitted})
+
 
 
 def traitement(request):
@@ -52,8 +52,8 @@ def delete(request, id):
     return redirect("Lioeuvre")
 
 def liste_oeuvre (request):
-    oeuvre= list(models.Table.objects.all())
-    return render(request, 'archi/liste_oeuvre.html',{'oeuvre':oeuvre})
+    liste_oeuvre = Table.objects.all()
+    return render(request, 'archi/liste_oeuvre.html',{'liste_oeuvre':liste_oeuvre})
 
 
 def ajout_architecte(request):

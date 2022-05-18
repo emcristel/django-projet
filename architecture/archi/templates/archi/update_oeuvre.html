@@ -6,7 +6,7 @@
         {% block content %}
 <div class="upo">
 
-   <form action="" method="post">
+   <form method="post">
             {% csrf_token %}
                     {{ form.nom|as_crispy_field }}
 
@@ -18,7 +18,7 @@
 
                     {{ form.architecte|as_crispy_field }}
 
-
+        <br></br>
         <input class="btn btn-success" type="submit" value="Mettre à jour l'oeuvre">
         <a class="btn btn-outline-danger" href="{% url 'Lioeuvre' %}">Annuler</a>
 

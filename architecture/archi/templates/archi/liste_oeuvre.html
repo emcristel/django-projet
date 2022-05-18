@@ -1,34 +1,37 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
- <div class="listeo">
-  <table class="table table-success table-striped">
-    <thead>
-      <tr>
-        <th class="table-top" scope="col">Nom</th>
-        <th class="table-top" scope="col">Date creation</th>
-        <th class="table-top" scope="col">Localisation</th>
-        <th class="table-top" scope="col">Type oeuvre</th>
-        <th class="table-top" scope="col">Architecte</th>
-        <th class="table-top" scope="col"><a href="{% url 'Ajout' %}" type="button"
-              class="btn btn-secondary btn-sm">Ajouter une oeuvre</a></th>
-      </tr>
-    </thead>
-    {% for oeuvre in oeuvre %}
-      <tr>
-        <td class="'table-bot">{{ Table.name }}</td>
-        <td class="'table-bot">{{ Table.creation }}</td>
-        <td class="'table-bot">{{ Table.localisation }}</td>
-        <td class="'table-bot">{{ Table.type_oeuvre }}</td>
-        <td class="'table-bot">{{ Table.architecte }}</td>
-        <td class="'table-top text-end"> <a href="{%url 'Upoeuvre' oeuvre.id%}" type="button" class="btn btn-outline-success btn-sm"> Update </a> <a href="{%url 'Delete' oeuvre.id %}" type="button" class="btn btn-outline-danger btn-sm"> Delete </a> </td>
-      </tr>
-  </table>
- </div>
+<div class="listeo">
+    <h1>La liste des oeuvres</h1>
+    <br></br>
+    <ul>
+    {% for oeuvre in liste_oeuvre %}
 
-        {% empty %}
-        <p>Votre base de données est vide ! <a href="{% url 'Ajout' %}"> Ajouter la première oeuvre</a>.</p>
-        {% endfor %}
+        <div class="card">
+          <div class="card-header">
+            {{ oeuvre }}
+          </div>
+          <div class="card-body">
+            <ul>
+                <li>Date de création: {{oeuvre.creation}}</li>
+                <li>Localisation: {{oeuvre.localisation}}</li>
+                <li>Type de l'oeuvre: {{oeuvre.type_oeuvre}}</li>
+                <p> </p>
+                <a href="{%url 'Upoeuvre' oeuvre.id%}" type="button" class="btn btn-success"> Update </a> <a href="{%url 'Delete' oeuvre.id %}" type="button" class="btn btn-danger"> Delete </a>
+
+            </ul>
+
+          </div>
+        </div>
+
+        <br></br>
+
+    {% empty %}
+    Votre base de données est vide ! <a href="{% url 'Ajout' %}"> Ajouter le premier architecte</a>.
+    {% endfor %}
+    </ul>
+</div>
 
 {% endblock %}
