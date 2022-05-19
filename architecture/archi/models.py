@@ -8,12 +8,12 @@ class Architecte(models.Model):
     def __str__(self):
         return self.archit
 
-class Table(models.Model):
+class Oeuvre(models.Model):
 
     nom = models.CharField(null=True, blank=True, max_length=60)
     creation = models.DateField (blank=True, null=True)
     localisation = models.CharField(null=True, blank=True, max_length=30)
-    type_oeuvre = models.CharField(null=True, blank=True, max_length=200)
+    type_oeuvre = models.CharField(null=True, blank=True, max_length=500)
     architecte = models.ForeignKey(Architecte, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):

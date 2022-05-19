@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if searched %}
+
+<div class="search-title" >
+                <h2>tu cherches pour le mot: {{ searched }}</h2>
+</div>
+</br>
+
+<div class="article-table">
+    <table class="table table-light table-striped table-bordered">
+      <thead>
+        <tr class="table-dark">
+          <th class="table-top" scope="col">Nom de l'Oeuvre</th>
+          <th class="table-top" scope="col">Date de Création</th>
+          <th class="table-top" scope="col">Nom de l'Architecte</th>
+          <th class="table-top" scope="col">Localisation</th>
+          <th class="table-top" scope="col">Type de l'Oeuvre</th>
+          <th class="table-top text-end" scope="col"></th>
+        </tr>
+      </thead>
+      {% for oeuvre in Oeuvres %}
+      <tr>
+        <td class="table-bot">{{ Oeuvre.nom}}</a></td>
+        <td class="table-bot">{{ Oeuvre.creation }}</td>
+        <td class="table-bot">{{ Oeuvre.architecte }}</td>
+        <td class="table-bot">{{ Oeuvre.localisation }}</td>
+        <td class="table-bot">{{ Oeuvre.type_oeuvre }}</td>
+        <td class="table-top text-end">
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <a href="{% url 'Upoeuvre' oeuvre.pk %}" type="button" class="btn btn-outline-primary btn-sm"> Update </a>
+            <a href="{%url 'Delete' oeuvre.pk %}" type="button" class="btn btn-danger btn-sm"> Delete </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+</div>
+        {% endfor %}
+
+        {% else %}
+            <div class="search_title"></div>
+                <h2> T'as oublié de cherché une oeuvre</h2>
+            </div>
+        {% endif %}
+{% endblock %}

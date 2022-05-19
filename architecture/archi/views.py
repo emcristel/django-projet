@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import TableForm
+from .forms import OeuvreForm
 from .forms import ArchitecteForm
 from . import models
-from .models import Table
+from .models import Oeuvre
 from .models import Architecte
 from django.http import HttpResponseRedirect
 from django import forms
@@ -15,12 +15,12 @@ def home(request):
 def ajout(request):
     submitted = False
     if request.method == "POST":
-        form = TableForm(request.POST)
+        form = OeuvreForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("Lioeuvre")
     else:
-        form = TableForm
+        form = OeuvreForm
         if 'submitted' in request.GET:
             submitted = True
     return render(request,'archi/ajout.html',{"form": form, 'submitted':submitted})
@@ -28,7 +28,7 @@ def ajout(request):
 
 
 def traitement(request):
-    oform = TableForm(request.POST)
+    oform = OeuvreForm(request.POST)
     if oform.is_valid():
         oeuvre = oform.save()
         return HttpResponseRedirect(request, "/archi/")
@@ -38,8 +38,8 @@ def traitement(request):
 
 
 def update_oeuvre(request, id):
-    oeuvre = Table.objects.get(pk=id)
-    form = TableForm(request.POST or None, instance=oeuvre)
+    oeuvre = Oeuvre.objects.get(pk=id)
+    form = OeuvreForm(request.POST or None, instance=oeuvre)
     if form.is_valid():
         form.save()
         return redirect("Lioeuvre")
@@ -47,12 +47,12 @@ def update_oeuvre(request, id):
 
 
 def delete(request, id):
-    oeuvre= models.Table.objects.get(pk=id)
+    oeuvre= models.Oeuvre.objects.get(pk=id)
     oeuvre.delete()
     return redirect("Lioeuvre")
 
 def liste_oeuvre (request):
-    liste_oeuvre = Table.objects.all()
+    liste_oeuvre = Oeuvre.objects.all()
     return render(request, 'archi/liste_oeuvre.html',{'liste_oeuvre':liste_oeuvre})
 
 
@@ -85,4 +85,14 @@ def delete_architecte(request, architecte_id):
     architecte = Architecte.objects.get(pk=architecte_id)
     architecte.delete()
     return redirect('Architecte')
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        Oeuvres = Oeuvre.objects.filter(nom__contains=searched)
+
+        return render(request, 'archi/search.html', {'searched': searched, 'Oeuvres': Oeuvres})
+    else:
+        return render(request, 'archi/search.html', {})
+
 

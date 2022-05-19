@@ -11,6 +11,12 @@ h2{
     text-align: center;
 }
 
+h3{
+    font-family: 'Ubuntu';
+    text-align: center;
+
+}
+
 
 /*!!! PARTIE INDEX.HTML !!!*/
 
@@ -147,6 +153,14 @@ a{
 
 }
 
+.tetu {
+   margin-left: 18rem;
+   margin-right: 18rem;
+   background-color: #FF3366;
+   color:azure;
+   padding: 1rem 0rem 1rem 0rem;
+}
+
 
 /*!!! PARTIE LISTE_OEUVRE.HTML !!!*/
 .listeo{
@@ -166,6 +180,14 @@ a{
 .ajarchi{
     margin-top: 5%;
 }
+
+.tete {
+   margin-left: 22rem;
+   margin-right: 22rem;
+   background-color: #FF3366;
+   color:azure;
+   padding: 1rem 0rem 1rem 0rem;
+}
 /*!!! PARTIE UPDATE_ARCHITECTE.HTML !!!*/
 .upa{
     margin: auto;
@@ -178,4 +200,17 @@ a{
     margin: auto;
     margin-top: 5%;
     width: 55%;
+}
+
+/*!!! SEARCH.HTML !!!*/
+.search-title{
+    margin: auto;
+    margin-top: 7%;
+    width: 80%;
+    text-align: center;
+    font-size: 8em;
+}
+.article-table{
+    margin: auto;
+    width: 80%;
 }
