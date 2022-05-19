@@ -166,7 +166,7 @@ a{
 .listeo{
     margin:auto;
     margin-top: 5%;
-    width:80%;
+    width:75%;
 }
 
 /*!!! PARTIE UPDATE_OEUVRE.HTML !!!*/
@@ -213,4 +213,15 @@ a{
 .article-table{
     margin: auto;
     width: 80%;
+}
+
+
+.search-title-2{
+    margin: auto;
+    margin-top: 15%;
+    width: 50%;
+    text-align: center;
+    background-color: #FF3366;
+    color:azure;
+    padding: 2rem 0rem 2rem 0rem;
 }

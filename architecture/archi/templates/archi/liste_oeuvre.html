@@ -15,10 +15,10 @@
           </div>
           <div class="card-body">
             <ul>
-                <li>Date de création: {{oeuvre.creation}}</li>
-                <li>Localisation: {{oeuvre.localisation}}</li>
-                <li>Type de l'oeuvre: {{oeuvre.type_oeuvre}}</li>
-                <li>Architecte: {{oeuvre.architecte}}</li>
+                <li><strong>Date de création:</strong> {{oeuvre.creation}}</li>
+                <li><strong>Localisation:</strong> {{oeuvre.localisation}}</li>
+                <li><strong>Type de l'oeuvre:</strong> {{oeuvre.type_oeuvre}}</li>
+                <li><strong>Architecte:</strong> {{oeuvre.architecte}}</li>
                 <p> </p>
                 <a href="{%url 'Upoeuvre' oeuvre.id%}" type="button" class="btn btn-primary"> Update </a> <a href="{%url 'Delete' oeuvre.id %}" type="button" class="btn btn-danger"> Delete </a>
 
